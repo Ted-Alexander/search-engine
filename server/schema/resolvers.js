@@ -20,7 +20,7 @@ const resolvers =
         return userData;
       }
 
-      throw new AuthenticationError("Not Logged In");
+      throw new AuthenticationError("You Are Not Logged In.");
     },
   },
   Mutation: {
