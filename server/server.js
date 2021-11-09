@@ -1,9 +1,10 @@
 const express = require('express');
+var cors = require('cors');
 const path = require('path');
 const db = require('./config/connection');
 // const routes = require('./routes');
 const { ApolloServer } = require('apollo-server-express');
-const db = require('./config/connection')
+
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth')
 
@@ -17,6 +18,7 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 server.applyMiddleware({ app });
 
